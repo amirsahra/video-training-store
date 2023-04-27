@@ -19,17 +19,17 @@ class Auth extends Component
         return view('authentication::livewire.auth');
     }
 
-    public function loginContent()
+    public function loginContent(): void
     {
         $this->contentEnabler('login');
     }
 
-    public function registerContent()
+    public function registerContent(): void
     {
         $this->contentEnabler('register');
     }
 
-    public function forgotContent()
+    public function forgotContent(): void
     {
         $this->contentEnabler('forgot');
     }
