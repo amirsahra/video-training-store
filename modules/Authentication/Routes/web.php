@@ -11,6 +11,8 @@
 |
 */
 
-Route::prefix('authentication')->group(function() {
+use Illuminate\Support\Facades\Route;
+
+Route::prefix('auth')->middleware('guest')->group(function() {
     Route::get('/', 'AuthenticationController@index');
 });
