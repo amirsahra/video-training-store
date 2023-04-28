@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Hash;
 use Modules\Authentication\Entities\User;
 
 class SeedDefaultUserTableSeeder extends Seeder
@@ -28,7 +29,7 @@ class SeedDefaultUserTableSeeder extends Seeder
             'username' => $defaultUser['username'],
             'email' => $defaultUser['email'],
             'email_verified_at' => Carbon::now(),
-            'password' => $defaultUser['password']
+            'password' => Hash::make($defaultUser['password'])
         ]);
     }
 }
