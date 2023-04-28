@@ -17,6 +17,6 @@ class AuthenticationDatabaseSeeder extends Seeder
     {
         Model::unguard();
         User::factory(20)->create();
-        // $this->call("OthersTableSeeder");
+        $this->call(SeedDefaultUserTableSeeder::class);
     }
 }
