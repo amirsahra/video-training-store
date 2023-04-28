@@ -7,5 +7,10 @@
     "providers": [
         "Modules\\Authentication\\Providers\\AuthenticationServiceProvider"
     ],
+    "migration": {
+        "seeds": [
+            "Modules\\Authentication\\Database\\Seeders\\AuthenticationDatabaseSeeder"
+        ]
+    },
     "files": []
 }

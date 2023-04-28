@@ -2,11 +2,15 @@
 
 namespace Modules\Authentication\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Modules\Authentication\Database\factories\UserFactory;
 
-class User extends Model
+class User extends Authenticatable
 {
+    use HasApiTokens, HasFactory, Notifiable;
     use HasFactory;
 
     protected $table = 'users';
@@ -15,8 +19,8 @@ class User extends Model
         'username', 'email', 'password'
     ];
 
-    protected static function newFactory()
+    protected static function newFactory(): UserFactory
     {
-        //return \Modules\Authentication\Database\factories\UserFactory::new();
+        return UserFactory::new();
     }
 }

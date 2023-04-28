@@ -4,6 +4,7 @@ namespace Modules\Authentication\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Authentication\Entities\User;
 
 class AuthenticationDatabaseSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class AuthenticationDatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-
+        User::factory(20)->create();
         // $this->call("OthersTableSeeder");
     }
 }
