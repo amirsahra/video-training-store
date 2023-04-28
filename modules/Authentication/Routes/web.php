@@ -12,7 +12,12 @@
 */
 
 use Illuminate\Support\Facades\Route;
+use Modules\Authentication\Http\Controllers\AuthenticationController;
 
-Route::prefix('auth')->middleware('guest')->group(function() {
-    Route::get('/', 'AuthenticationController@index');
+Route::prefix('auth')->middleware('guest')->group(function () {
+    Route::get('/', [AuthenticationController::class, 'index']);
+});
+
+Route::middleware('auth:web')->group(function () {
+    Route::get('logout',[AuthenticationController::class,'logout']);
 });
