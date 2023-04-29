@@ -9,12 +9,17 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public string $username, $email, $password;
+    public string $username, $email, $password, $rememberMe;
 
     protected $rules = [
         'username' => 'required',
         'password' => 'required|min:6'
     ];
+
+    public function mount()
+    {
+        $this->rememberMe = false;
+    }
 
     public function render(): View
     {
@@ -27,7 +32,7 @@ class Login extends Component
 
         $fieldType = filter_var($this->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-        if (auth()->attempt(array($fieldType => $this->username, 'password' => $this->password))) {
+        if (auth()->attempt([$fieldType => $this->username, 'password' => $this->password], $this->rememberMe)) {
             session()->flash('message', "You are Login successful.");
             return Redirect::route('home');
         } else
