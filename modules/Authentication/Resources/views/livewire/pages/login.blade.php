@@ -9,13 +9,13 @@
 
     <form>
         <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Email" wire:model="email">
+            <input type="text" class="form-control" placeholder="Username or email" wire:model="username">
             <div class="input-group-append">
                 <div class="input-group-text">
                     <span class="fas fa-envelope"></span>
                 </div>
             </div>
-            @error('email') <span class="error invalid-feedback">{{ $message }}</span>@enderror
+            @error('username') <span class="error invalid-feedback">{{ $message }}</span>@enderror
         </div>
         <div class="input-group mb-3">
             <input type="password" class="form-control" placeholder="Password" wire:model="password">

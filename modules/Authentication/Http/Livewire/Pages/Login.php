@@ -3,16 +3,16 @@
 namespace Modules\Authentication\Http\Livewire\Pages;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
+
 
 class Login extends Component
 {
     public string $username, $email, $password;
 
     protected $rules = [
-        'email' => 'required|exists:users,email|email',
+        'username' => 'required',
         'password' => 'required|min:6'
     ];
 
@@ -25,10 +25,12 @@ class Login extends Component
     {
         $this->validate();
 
-        if (Auth::attempt(array('email' => $this->email, 'password' => $this->password))) {
+        $fieldType = filter_var($this->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+        if (auth()->attempt(array($fieldType => $this->username, 'password' => $this->password))) {
             session()->flash('message', "You are Login successful.");
             return Redirect::route('home');
-        }
-        session()->flash('error', 'email and password are wrong.');
+        } else
+            session()->flash('error', 'email and password are wrong.');
     }
 }
