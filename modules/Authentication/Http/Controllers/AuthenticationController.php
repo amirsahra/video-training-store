@@ -20,6 +20,7 @@ class AuthenticationController extends Controller
     public function logout()
     {
         auth()->logout();
+        return Redirect::route('home');
     }
 
 }
