@@ -26,7 +26,7 @@
             @if(!$login)
                 <p class="mb-0">
                     <a href="#" class="text-center" wire:click.prefetch="loginContent">I already have a
-                        membership</a>
+                        membership (Login)</a>
                 </p>
             @endif
         </div>
