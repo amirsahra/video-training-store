@@ -16,10 +16,9 @@ use Illuminate\Support\Facades\Route;
 use Modules\Authentication\Http\Controllers\AuthenticationController;
 
 Route::prefix('auth')->middleware('guest')->group(function () {
-    Route::get('/', [AuthenticationController::class, 'index']);
-    Route::get('/reset-password/{token}', function (string $token) {
-        return view('auth.reset-password', ['token' => $token]);
-    })->middleware('guest')->name('password.reset');
+    Route::get('/', [AuthenticationController::class, 'index'])->name('auth');
+    Route::get('/reset-password/{token}', [AuthenticationController::class,'resetPassword'])
+        ->name('password.reset');
 });
 
 Route::middleware('auth:web')->group(function () {

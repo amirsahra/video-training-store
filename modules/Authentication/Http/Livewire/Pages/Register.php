@@ -5,6 +5,7 @@ namespace Modules\Authentication\Http\Livewire\Pages;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Modules\Authentication\Entities\User;
+use Illuminate\Contracts\View\View;
 
 class Register extends Component
 {
@@ -16,7 +17,7 @@ class Register extends Component
         'password' => 'required|confirmed|min:6'
     ];
 
-    public function render()
+    public function render(): View
     {
         return view('authentication::livewire.pages.register');
     }

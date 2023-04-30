@@ -49,7 +49,9 @@
             @error('password_confirmation') <span class="error invalid-feedback">{{ $message }}</span>@enderror
         </div>
         <div class="row">
-            <!-- /.col -->
+            <div class="col-8">
+                <div class="icheck-primary"></div>
+            </div>
             <div class="col-4">
                 <button type="submit" class="btn btn-primary btn-block" wire:click.prevent="doRegister">Register</button>
             </div>

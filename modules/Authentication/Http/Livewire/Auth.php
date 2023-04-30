@@ -8,6 +8,7 @@ use Livewire\Component;
 class Auth extends Component
 {
     public bool $login, $register, $forgot;
+    public string $token;
 
     public function mount(): void
     {

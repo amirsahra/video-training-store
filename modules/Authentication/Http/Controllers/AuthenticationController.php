@@ -23,4 +23,9 @@ class AuthenticationController extends Controller
         return Redirect::route('home');
     }
 
+    public function resetPassword(Request $request)
+    {
+        return view('authentication::index', ['token' => $request->token]);
+    }
+
 }
