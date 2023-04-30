@@ -26,15 +26,3 @@ Route::middleware('auth:web')->group(function () {
     Route::get('logout', [AuthenticationController::class, 'logout'])
         ->name('logout');
 });
-
-
-Route::get('tt', function () {
-    $data = array('name' => "amir sahra");
-
-    Mail::send(['text' => 'test'], $data, function ($message) {
-        $message->to('amirhosein.sahra@gmail.com', 'Tutorials Point')->subject
-        ('Laravel Basic Testing Mail');
-        $message->from('xyz@gmail.com', 'Virat Gandhi');
-    });
-    echo "Basic Email Sent. Check your inbox.";
-});
