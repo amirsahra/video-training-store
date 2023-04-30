@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Modules\Authentication\Http\Controllers\AuthenticationController;
@@ -25,4 +26,8 @@ Route::prefix('auth')->middleware('guest')->group(function () {
 Route::middleware('auth:web')->group(function () {
     Route::get('logout', [AuthenticationController::class, 'logout'])
         ->name('logout');
+});
+
+Route::get('tt',function (){
+    dd(Config::get('authentication'));
 });
