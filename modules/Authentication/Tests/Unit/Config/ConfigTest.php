@@ -3,8 +3,7 @@
 namespace Modules\Authentication\Tests\Unit\Config;
 
 use Illuminate\Support\Facades\Config;
-use PHPUnit\Framework\TestCase;
-
+use Tests\TestCase;
 class ConfigTest extends TestCase
 {
     protected array $authConfig;
