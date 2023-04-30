@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Authentication\Tests\Unit\Database;
+namespace Modules\Authentication\Tests\Unit\Database\factories;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Authentication\Entities\User;

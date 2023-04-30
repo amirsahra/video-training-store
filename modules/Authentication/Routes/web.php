@@ -11,8 +11,7 @@
 |
 */
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Route;
 use Modules\Authentication\Http\Controllers\AuthenticationController;
 
@@ -29,5 +28,5 @@ Route::middleware('auth:web')->group(function () {
 });
 
 Route::get('tt',function (){
-    dd(Config::get('authentication'));
+    dd(Schema::getColumnListing('users'));
 });
