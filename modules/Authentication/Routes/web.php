@@ -16,23 +16,25 @@ use Illuminate\Support\Facades\Route;
 use Modules\Authentication\Http\Controllers\AuthenticationController;
 
 Route::prefix('auth')->middleware('guest')->group(function () {
-    Route::get('/', [AuthenticationController::class, 'index'])->name('auth');
-    Route::get('/reset-password/{token}', [AuthenticationController::class,'resetPassword'])
+    Route::get('/', [AuthenticationController::class, 'index'])
+        ->name('auth');
+    Route::get('/reset-password/{token}', [AuthenticationController::class, 'resetPassword'])
         ->name('password.reset');
 });
 
 Route::middleware('auth:web')->group(function () {
-    Route::get('logout',[AuthenticationController::class,'logout']);
+    Route::get('logout', [AuthenticationController::class, 'logout'])
+        ->name('logout');
 });
 
 
-Route::get('tt',function (){
-    $data = array('name'=>"amir sahra");
+Route::get('tt', function () {
+    $data = array('name' => "amir sahra");
 
-    Mail::send(['text'=>'test'], $data, function($message) {
+    Mail::send(['text' => 'test'], $data, function ($message) {
         $message->to('amirhosein.sahra@gmail.com', 'Tutorials Point')->subject
         ('Laravel Basic Testing Mail');
-        $message->from('xyz@gmail.com','Virat Gandhi');
+        $message->from('xyz@gmail.com', 'Virat Gandhi');
     });
     echo "Basic Email Sent. Check your inbox.";
 });
